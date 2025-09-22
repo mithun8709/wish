@@ -178,7 +178,7 @@
     </div>
   </div>
   <!-- Audio Element -->
-    <audio id="backgroundAudio" src="Durga_Kavach.mp3" loop></audio>
+    <audio id="bgAudio" src="Durga_Kavach.mp3" loop></audio>
 
 
   <script>
@@ -246,22 +246,20 @@
     }
     setInterval(createFlower, 800);
 
-    document.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('backgroundAudio');
-    
-    audio.play().catch(err => {
-        console.log('Autoplay blocked:', err);
+    const audio = document.getElementById('bgAudio');
 
-        const playAudioOnUserEvent = () => {
-            audio.play().catch(err => console.log('Still blocked:', err));
-            document.removeEventListener('click', playAudioOnUserEvent);
-            document.removeEventListener('scroll', playAudioOnUserEvent);
-        };
+      function playAudioOnUserEvent() {
+        audio.play().catch(err => {
+          console.log('Autoplay blocked, waiting for user interaction.');
+        });
+        // Once user interacts, remove listener
+        document.removeEventListener('click', playAudioOnUserEvent);
+        document.removeEventListener('scroll', playAudioOnUserEvent);
+      }
 
-        document.addEventListener('click', playAudioOnUserEvent);
-        document.addEventListener('scroll', playAudioOnUserEvent);
-    });
-});
+      // Listen for first user interaction
+      document.addEventListener('click', playAudioOnUserEvent);
+      document.addEventListener('scroll', playAudioOnUserEvent);
 
   </script>
 </body>
