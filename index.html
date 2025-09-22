@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>नवरात्रि की शुभकामनाएं</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;600;700&family=Kalam:wght@400;700&family=Mukti:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-gold: #FFD700;
+            --deep-orange: #FF6B35;
+            --royal-purple: #6B46C1;
+            --crimson: #DC2626;
+            --warm-yellow: #FCD34D;
+            --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: 'Hind', 'Kalam', sans-serif;
+            background: linear-gradient(135deg,
+                #1e1b4b 0%,
+                #312e81 25%,
+                #7c3aed 50%,
+                #dc2626 75%,
+                #f59e0b 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+        .main-container { position: relative; z-index: 10; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .greeting-card {
+            max-width: 1000px; width: 100%;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 30px; overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+            margin: 20px auto; position: relative;
+            animation: cardEntry 1s ease-out;
+        }
+        @keyframes cardEntry { from { opacity:0; transform: translateY(50px) scale(.98) } to { opacity:1; transform: translateY(0) scale(1) } }
+
+        .header-section { text-align:center; padding: 40px 30px 30px; background: linear-gradient(135deg, rgba(255,215,0,0.12), rgba(220,38,38,0.08)); position: relative; }
+        .divine-symbol { position: absolute; top: -34px; left: 50%; transform: translateX(-50%); width: 84px; height: 84px; background: linear-gradient(45deg,var(--primary-gold),var(--warm-yellow)); border-radius: 50%; display:flex; align-items:center; justify-content:center; box-shadow: 0 10px 30px rgba(255,215,0,0.45); animation: pulse 2s infinite; z-index: 11; }
+        .divine-symbol i { font-size: 2.6rem; color: var(--royal-purple); text-shadow: 2px 2px 6px rgba(0,0,0,0.3); }
+        @keyframes pulse { 0%,100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.08); } }
+
+        .main-title { font-size: clamp(2.4rem,5vw,3.8rem); font-weight:700; background: linear-gradient(45deg,var(--primary-gold),var(--warm-yellow),var(--deep-orange)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; text-shadow: 0 6px 14px rgba(0,0,0,0.35); margin: 18px 0; line-height:1.15; animation: titleGlow 3s infinite alternate; }
+        @keyframes titleGlow { from { filter: drop-shadow(0 0 10px rgba(255,215,0,0.4)); } to { filter: drop-shadow(0 0 20px rgba(255,215,0,0.75)); } }
+
+        .subtitle { font-size: clamp(1rem,2.4vw,1.2rem); color: rgba(255,255,255,0.9); font-weight:300; line-height:1.6; max-width:600px; margin: 0 auto; }
+
+        .content-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 36px; padding: 36px; align-items:center; }
+        .image-section { position: relative; border-radius: 25px; overflow: hidden; aspect-ratio: 4/5; background: linear-gradient(135deg, rgba(107,70,193,0.15), rgba(220,38,38,0.12)); box-shadow: 0 20px 40px rgba(0,0,0,0.32); animation: imageFloat 6s ease-in-out infinite; }
+        @keyframes imageFloat { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-10px) } }
+        .goddess-image { width:100%; height:100%; object-fit: cover; transition: transform .45s ease; }
+        .image-section:hover .goddess-image { transform: scale(1.03) }
+        .image-overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .25s; background: linear-gradient(45deg, rgba(107,70,193,0.06), rgba(220,38,38,0.06)); }
+        .image-section:hover .image-overlay { opacity:1 }
+        .image-fallback { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--royal-purple),var(--crimson)); color:var(--primary-gold); }
+
+        .message-section { padding: 20px; border-radius: 20px; background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.06); backdrop-filter: blur(8px); text-align:center; }
+        .festival-greeting { font-size: clamp(1.6rem,3.4vw,2.2rem); font-weight:700; color: var(--primary-gold); margin-bottom:18px; text-shadow: 2px 2px 6px rgba(0,0,0,0.45); }
+        .wish-message { font-size: clamp(1rem,2vw,1.1rem); line-height:1.7; color: rgba(255,255,255,0.95); margin-bottom:14px; }
+
+        .sender-info { text-align:center; margin-top:22px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.08); }
+        .from-text { font-size: 1rem; color: rgba(255,255,255,0.8); margin-bottom:8px; }
+        .sender-name { font-size:1.2rem; font-weight:700; color: var(--primary-gold); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; padding:6px 14px; border-radius:22px; background-color: rgba(255,215,0,0.06); }
+
+        .action-section { text-align:center; padding: 28px; background: rgba(0,0,0,0.05); }
+        .share-button { background: linear-gradient(135deg,var(--primary-gold),var(--deep-orange)); color:#111; border:none; padding:14px 28px; font-size:1rem; font-weight:700; border-radius:50px; cursor:pointer; box-shadow: 0 8px 25px rgba(255,215,0,0.32); position:relative; overflow:hidden; }
+        .share-button::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent); transition:left .45s; }
+        .share-button:hover::before { left:100% }
+        .share-button:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(255,215,0,0.6); }
+
+        .footer-blessing { text-align:center; padding: 20px; color: rgba(255,255,255,0.85); font-size: 1rem; font-style: italic; }
+
+        @media (max-width: 768px) {
+            .content-grid { grid-template-columns: 1fr; padding: 28px; gap: 26px; }
+            .image-section { aspect-ratio: 3/4; max-width: 360px; margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="greeting-card">
+            <div class="header-section">
+                <div class="divine-symbol">
+                    <i class="fas fa-om"></i>
+                </div>
+                <h1 class="main-title">🙏 नवरात्रि की हार्दिक शुभकामनाएं 🙏</h1>
+                <p class="subtitle">मां दुर्गा के आशीर्वाद से आपका जीवन खुशियों और समृद्धि से भर जाए</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="image-section">
+                    <img
+                        src="https://images.unsplash.com/photo-1599106242946-fd550dac004c?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="माँ दुर्गा"
+                        class="goddess-image"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+                    <div class="image-fallback" style="display: none;">
+                        <i class="fas fa-lotus"></i>
+                        <h3>माँ दुर्गा</h3>
+                        <p>शक्ति की देवी</p>
+                    </div>
+                    <div class="image-overlay">
+                        <i class="fas fa-heart" style="font-size: 3rem; color: var(--primary-gold); animation: pulse 1s infinite;"></i>
+                    </div>
+                </div>
+
+                <div class="message-section">
+                    <h2 class="festival-greeting">🌟 शुभ नवरात्रि 🌟</h2>
+                    
+                    <p class="wish-message">
+                        माँ दुर्गा के इस पावन पर्व पर आपके जीवन में अपार खुशियाँ, सफलता और समृद्धि आए। 
+                        माता रानी आपके सभी कष्टों का हरण करें और आपको शक्ति, स्वास्थ्य और सुख-शांति प्रदान करें।
+                    </p>
+                    
+                    <p class="wish-message">🕉️ जय माता दी 🕉️<br>नवरात्रि की हार्दिक बधाई!</p>
+                    
+                    <div class="sender-info">
+                        <div class="from-text">प्रेम और आशीर्वाद सहित</div>
+                        <div class="sender-name" id="senderName">आपके स्नेही</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-section">
+                <button class="share-button" onclick="shareWish()">
+                    <i class="fas fa-share-heart"></i> इस शुभकामना को आगे भेजें
+                </button>
+            </div>
+            
+            <div class="footer-blessing">
+                <p>🌺 माँ दुर्गा सभी पर अपनी कृपा बनाए रखें 🌺</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+        function initializeSender() {
+            const senderName = getUrlParameter('from');
+            const senderElement = document.getElementById('senderName');
+            if (senderName && senderName.trim() !== '') {
+                senderElement.textContent = decodeURIComponent(senderName);
+            } else {
+                senderElement.textContent = "आपके स्नेही";
+            }
+        }
+
+        function shareWish() {
+            const userName = prompt("कृपया अपना नाम दर्ज करें:", "");
+            if (userName && userName.trim() !== '') {
+                const baseUrl = window.location.href.split('?')[0];
+                const shareUrl = `${baseUrl}?from=${encodeURIComponent(userName.trim())}`;
+                if (navigator.share) {
+                    navigator.share({ title: 'नवरात्रि की शुभकामनाएं',
+                                      text: `${userName} ने आपको नवरात्रि की हार्दिक शुभकामनाएं भेजी हैं!`,
+                                      url: shareUrl })
+                    .catch(err => { copyToClipboard(shareUrl); });
+                } else {
+                    copyToClipboard(shareUrl);
+                }
+            }
+        }
+        function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => showNotification("✅ लिंक कॉपी हो गया! इसे WhatsApp, Facebook या किसी भी ऐप में शेयर करें।"))
+                .catch(err => fallbackCopyTextToClipboard(text));
+            } else {
+                fallbackCopyTextToClipboard(text);
+            }
+        }
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.focus(); textArea.select();
+            try {
+                document.execCommand('copy');
+                showNotification("✅ लिंक कॉपी हो गया! इसे शेयर करें।");
+            } catch (err) {
+                prompt("कृपया इस लिंक को कॉपी करें:", text);
+            }
+            document.body.removeChild(textArea);
+        }
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #10B981, #059669);
+                color: white;
+                padding: 12px 18px;
+                border-radius: 10px;
+                font-weight: 600;
+                box-shadow: 0 10px 25px rgba(16,185,129,0.3);
+                z-index:10000;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            setTimeout(()=>{
+                notification.style.opacity = '0';
+                setTimeout(()=>notification.remove(), 400);
+            }, 3500);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeSender();
+            const card = document.querySelector('.greeting-card');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(40px)';
+            setTimeout(()=>{ card.style.transition = 'all 900ms ease-out'; card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 250);
+        });
+    </script>
+</body>
+</html>
