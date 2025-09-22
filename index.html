@@ -117,7 +117,7 @@
     <div class="greeting-card">
       <div class="header-section">
         <div class="divine-symbol"><i class="fas fa-om"></i></div>
-        <h1 class="main-title">🙏 नवरात्रि की हार्दिक शुभकामनाएं 🙏</h1>
+        <h1 class="main-title" style="font-size: 20px;">🌼🌸 नवरात्रि की हार्दिक शुभकामनाएं 🌸🌼</h1>
         <p class="subtitle">मां दुर्गा के आशीर्वाद से आपका जीवन खुशियों और समृद्धि से भर जाए</p>
       </div>
       
@@ -162,7 +162,7 @@
           <a href="https://www.facebook.com/aangsoftware" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="https://www.instagram.com/aangsoftware" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
           <a href="https://www.linkedin.com/company/aangsoftware" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://www.youtube.com/@aangsoftware" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+          <!-- <a href="https://www.youtube.com/@aangsoftware" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a> -->
         </div>
       </div>
       
@@ -177,6 +177,9 @@
       </div>
     </div>
   </div>
+  <!-- Audio Element -->
+    <audio id="backgroundAudio" src="G:/Music/Kabhi_bandhan_juda_liya_kabhi_daman_chhura_liya(128k).m4a" loop></audio>
+
 
   <script>
     function getUrlParameter(name) {
@@ -232,15 +235,34 @@
 
     // Flowers गिरते रहें
     function createFlower() {
-      const flower = document.createElement('div');
-      flower.classList.add('flower');
-      flower.textContent = '🌸';
-      flower.style.left = Math.random() * window.innerWidth + 'px';
-      flower.style.animationDuration = (3 + Math.random() * 5) + 's';
-      document.body.appendChild(flower);
-      setTimeout(() => flower.remove(), 8000);
+        const emojis = ['🌸', '💕', '🌼', '✨', '🎊']; // ✅ अलग-अलग emoji
+        const flower = document.createElement('div');
+        flower.classList.add('flower');
+        flower.textContent = emojis[Math.floor(Math.random() * emojis.length)]; // ✅ random emoji
+        flower.style.left = Math.random() * window.innerWidth + 'px';
+        flower.style.animationDuration = (3 + Math.random() * 5) + 's';
+        document.body.appendChild(flower);
+        setTimeout(() => flower.remove(), 8000);
     }
     setInterval(createFlower, 800);
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('backgroundAudio');
+    
+    audio.play().catch(err => {
+        console.log('Autoplay blocked:', err);
+
+        const playAudioOnUserEvent = () => {
+            audio.play().catch(err => console.log('Still blocked:', err));
+            document.removeEventListener('click', playAudioOnUserEvent);
+            document.removeEventListener('scroll', playAudioOnUserEvent);
+        };
+
+        document.addEventListener('click', playAudioOnUserEvent);
+        document.addEventListener('scroll', playAudioOnUserEvent);
+    });
+});
+
   </script>
 </body>
 </html>
