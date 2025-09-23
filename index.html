@@ -197,10 +197,13 @@
       if (userName && userName.trim() !== '') {
         const baseUrl = window.location.href.split('?')[0];
         const shareUrl = `${baseUrl}?from=${encodeURIComponent(userName.trim())}`;
-        if (navigator.share) {
-          navigator.share({ title: 'नवरात्रि की शुभकामनाएं', text: `${userName} ने आपको नवरात्रि की हार्दिक शुभकामनाएं भेजी हैं!`, url: shareUrl })
-          .catch(err => { copyToClipboard(shareUrl); });
-        } else { copyToClipboard(shareUrl); }
+
+        // ✅ WhatsApp Direct Share Link
+        const message = `🌸 नवरात्रि की हार्दिक शुभकामनाएं 🌸\n\n${userName} ने आपको शुभकामनाएं भेजी हैं!\n\nदेखें: ${shareUrl}`;
+        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+
+        // WhatsApp open
+        window.open(whatsappUrl, "_blank");
       }
     }
     function copyToClipboard(text) {
